@@ -1,0 +1,14 @@
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\bin\Debug\zebraprinterexample.exe.config
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\bin\Debug\zebraprinterexample.exe
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\bin\Debug\zebraprinterexample.pdb
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\bin\Debug\itextsharp.dll
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\bin\Debug\itextsharp.xml
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.Form1.resources
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.Form2.resources
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.Form3.resources
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.Properties.Resources.resources
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.csproj.GenerateResource.cache
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.csproj.CoreCompileInputs.cache
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.csproj.CopyComplete
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.exe
+E:\code_caozi\c#\zebraprinterexample\zebraprinterexample\obj\Debug\zebraprinterexample.pdb
