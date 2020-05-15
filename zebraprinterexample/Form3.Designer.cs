@@ -71,6 +71,8 @@
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.printerNameText);
 			this.Controls.Add(this.printerName);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "Form3";
 			this.Text = "打印机设置";
 			this.Load += new System.EventHandler(this.Form3_Load);

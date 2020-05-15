@@ -8,7 +8,7 @@
 * ![ZebraDesigner打印到prn文件](https://github.com/caozi/zebra-printer-example/blob/master/screenshots/zebradesigner2.png)
 
 ## 第二步：将prn文件中的EPL命令发送给斑马打印机（ZDesigner GK888t (EPL)）
- 用windows记事本打开prn文件，prn文件的内容很简单，找到你想打印的内容，比如我想打印的号是555055，如果想让打印机打印别的号码，只需要替换掉555055就可以，具体代码可以参考private string GenerateLabels(int startLabelNumbers, int numberOfLabelsToGenerate)函数，很简单的。
+ 用windows记事本打开prn文件，prn文件的内容很简单，找到你想打印的内容，比如我想打印的号是555055，如果想让打印机打印别的号码，只需要替换掉555055就可以，具体代码可以参考GenerateLabels函数，很简单的。
  * ![记事本打开prn文件](https://github.com/caozi/zebra-printer-example/blob/master/screenshots/prn1.png)
 
 就这么简单

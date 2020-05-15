@@ -41,6 +41,7 @@
 			this.numberOfLabelText = new System.Windows.Forms.Label();
 			this.settingLabel = new System.Windows.Forms.Button();
 			this.printerButton = new System.Windows.Forms.Button();
+			this.labelSetting = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// printLabel
@@ -177,11 +178,23 @@
 			this.printerButton.UseVisualStyleBackColor = true;
 			this.printerButton.Click += new System.EventHandler(this.printerButton_Click);
 			// 
+			// labelSetting
+			// 
+			this.labelSetting.Font = new System.Drawing.Font("Microsoft YaHei", 20F);
+			this.labelSetting.Location = new System.Drawing.Point(37, 470);
+			this.labelSetting.Name = "labelSetting";
+			this.labelSetting.Size = new System.Drawing.Size(228, 56);
+			this.labelSetting.TabIndex = 13;
+			this.labelSetting.Text = "标签设置";
+			this.labelSetting.UseVisualStyleBackColor = true;
+			this.labelSetting.Click += new System.EventHandler(this.labelSetting_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(308, 492);
+			this.ClientSize = new System.Drawing.Size(308, 539);
+			this.Controls.Add(this.labelSetting);
 			this.Controls.Add(this.printerButton);
 			this.Controls.Add(this.settingLabel);
 			this.Controls.Add(this.numberOfLabelText);
@@ -195,6 +208,7 @@
 			this.Controls.Add(this.startLabel);
 			this.Controls.Add(this.printSummary);
 			this.Controls.Add(this.printLabel);
+			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
 			this.Text = "病理号标签打印程序";
@@ -220,6 +234,7 @@
 		private System.Windows.Forms.Label numberOfLabelText;
 		private System.Windows.Forms.Button settingLabel;
 		private System.Windows.Forms.Button printerButton;
+		private System.Windows.Forms.Button labelSetting;
 	}
 }
 

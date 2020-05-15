@@ -122,6 +122,7 @@
 			this.Controls.Add(this.numberOfLabelText);
 			this.Controls.Add(this.numberOfLabel);
 			this.Controls.Add(this.group);
+			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form2";
 			this.Text = "打印设置";

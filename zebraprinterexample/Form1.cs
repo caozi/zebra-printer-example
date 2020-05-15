@@ -154,7 +154,11 @@ namespace zebraprinterexample
 			else
 			{
 				DateTime thisDay = DateTime.Today;
-				string page = GenerateLabels(int.Parse(startLabelText.Text), int.Parse(numberOfLabelText.Text));
+				string barcodeX = Settings.Default["barcodeX"].ToString();
+				string barcodeY = Settings.Default["barcodeY"].ToString();
+				string numberX = Settings.Default["numberX"].ToString();
+				string numberY = Settings.Default["numberY"].ToString();
+				string page = GenerateLabels(int.Parse(startLabelText.Text), int.Parse(numberOfLabelText.Text),barcodeX,barcodeY,numberX,numberY);
 				string printer = Settings.Default["currentPrinterName"].ToString();
 				SendStringToPrinter(printer, page);
 				
@@ -193,7 +197,8 @@ namespace zebraprinterexample
 			
 		}
 
-		private string GenerateLabels(int startLabelNumbers, int numberOfLabelsToGenerate)
+		//生成标签EPL命令
+		private string GenerateLabels(int startLabelNumbers, int numberOfLabelsToGenerate,string barcodeX, string barcodeY, string numberX, string numberY)
 		{
 			string lineFeed = "\n";
 			string pageHead = "I8,A,001";
@@ -223,28 +228,37 @@ namespace zebraprinterexample
 			pageStart += "N";
 			pageStart += lineFeed;
 
+			//A开头是数字，B开头是条码
 			string firstLabel = "";
-			firstLabel += "A44,100,0,3,2,2,N,\"{0}\"";
+			//firstLabel += "A44,100,0,3,2,2,N,\"{0}\"";
+			firstLabel += "A{1},{2},0,3,2,2,N,\"{0}\"";
 			firstLabel += lineFeed;
-			firstLabel += "B53,29,0,1,2,6,66,N,\"{0}\"";
+			//firstLabel += "B53,29,0,1,2,6,66,N,\"{0}\"";
+			firstLabel += "B{3},{4},0,1,2,6,66,N,\"{0}\"";
 			firstLabel += lineFeed;
 
 			string secondLabel = "";
-			secondLabel += "A244,100,0,3,2,2,N,\"{0}\"";
+			//secondLabel += "A244,100,0,3,2,2,N,\"{0}\"";
+			secondLabel += "A{1},{2},0,3,2,2,N,\"{0}\"";
 			secondLabel += lineFeed;
-			secondLabel += "B253,29,0,1,2,6,66,N,\"{0}\"";
+			//secondLabel += "B253,29,0,1,2,6,66,N,\"{0}\"";
+			secondLabel += "B{3},{4},0,1,2,6,66,N,\"{0}\"";
 			secondLabel += lineFeed;
 
 			string thirdLabel = "";
-			thirdLabel += "A444,100,0,3,2,2,N,\"{0}\"";
+			//thirdLabel += "A444,100,0,3,2,2,N,\"{0}\"";
+			thirdLabel += "A{1},{2},0,3,2,2,N,\"{0}\"";
 			thirdLabel += lineFeed;
-			thirdLabel += "B453,29,0,1,2,6,66,N,\"{0}\"";
+			//thirdLabel += "B453,29,0,1,2,6,66,N,\"{0}\"";
+			thirdLabel += "B{3},{4},0,1,2,6,66,N,\"{0}\"";
 			thirdLabel += lineFeed;
 
 			string fourthLabel = "";
-			fourthLabel += "A643,100,0,3,2,2,N,\"{0}\"";
+			//fourthLabel += "A643,100,0,3,2,2,N,\"{0}\"";
+			fourthLabel += "A{1},{2},0,3,2,2,N,\"{0}\"";
 			fourthLabel += lineFeed;
-			fourthLabel += "B652,29,0,1,2,6,66,N,\"{0}\"";
+			//fourthLabel += "B652,29,0,1,2,6,66,N,\"{0}\"";
+			fourthLabel += "B{3},{4},0,1,2,6,66,N,\"{0}\"";
 			fourthLabel += lineFeed;
 
 			string pageStop = "";
@@ -263,16 +277,36 @@ namespace zebraprinterexample
 					{
 						case 0:
 							labels += pageStart;
-							labels += String.Format(firstLabel, startLabelNumbers + i);
+							labels += String.Format(firstLabel, startLabelNumbers + i, 
+								                               (44 + int.Parse(numberX)).ToString(), 
+															   (100 + int.Parse(numberY)).ToString(),
+															   (53 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 1:
-							labels += String.Format(secondLabel, startLabelNumbers + i);
+							labels += String.Format(secondLabel, startLabelNumbers + i,
+															   (244 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (253 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 2:
-							labels += String.Format(thirdLabel, startLabelNumbers + i);
+							labels += String.Format(thirdLabel, startLabelNumbers + i,
+															   (444 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (453 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 3:
-							labels += String.Format(fourthLabel, startLabelNumbers + i);
+							labels += String.Format(fourthLabel, startLabelNumbers + i,
+															   (643 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (652 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 					}
 				}
@@ -283,16 +317,36 @@ namespace zebraprinterexample
 						case 0:
 							labels += pageStop;
 							labels += pageStart;
-							labels += String.Format(firstLabel, startLabelNumbers + i);
+							labels += String.Format(firstLabel, startLabelNumbers + i,
+															   (44 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (53 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 1:
-							labels += String.Format(secondLabel, startLabelNumbers + i);
+							labels += String.Format(secondLabel, startLabelNumbers + i,
+															   (244 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (253 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 2:
-							labels += String.Format(thirdLabel, startLabelNumbers + i);
+							labels += String.Format(thirdLabel, startLabelNumbers + i,
+															   (444 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (453 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 						case 3:
-							labels += String.Format(fourthLabel, startLabelNumbers + i);
+							labels += String.Format(fourthLabel, startLabelNumbers + i,
+															   (643 + int.Parse(numberX)).ToString(),
+															   (100 + int.Parse(numberY)).ToString(),
+															   (652 + int.Parse(barcodeX)).ToString(),
+															   (29 + int.Parse(barcodeY)).ToString()
+												  );
 							break;
 					}
 				}
@@ -453,6 +507,43 @@ namespace zebraprinterexample
 		{
 			Document doc = new Document();
 			PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+		}
+
+		//标签设置
+		private void labelSetting_Click(object sender, EventArgs e)
+		{
+			using (Form4 form4 = new Form4())
+			{
+				if (form4.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				{
+					if (form4.newbarcodeXText != "")
+					{
+						Settings.Default["barcodeX"] = form4.newbarcodeXText;
+						Settings.Default.Save();
+					}
+
+					if (form4.newbarcodeYText != "选择组别")
+					{
+						Settings.Default["barcodeY"] = form4.newbarcodeYText;
+						Settings.Default.Save();
+					}
+
+
+					if (form4.newnumberXText != "")
+					{
+						Settings.Default["numberX"] = form4.newnumberXText;
+						Settings.Default.Save();
+					}
+
+
+					if (form4.newnumberYText != "")
+					{
+						Settings.Default["numberY"] = form4.newnumberYText;
+						Settings.Default.Save();
+					}
+
+				}
+			}
 		}
 	}
 }

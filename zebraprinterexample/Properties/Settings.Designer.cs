@@ -46,5 +46,53 @@ namespace zebraprinterexample.Properties {
                 this["currentPrinterName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string barcodeX {
+            get {
+                return ((string)(this["barcodeX"]));
+            }
+            set {
+                this["barcodeX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string barcodeY {
+            get {
+                return ((string)(this["barcodeY"]));
+            }
+            set {
+                this["barcodeY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string numberX {
+            get {
+                return ((string)(this["numberX"]));
+            }
+            set {
+                this["numberX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string numberY {
+            get {
+                return ((string)(this["numberY"]));
+            }
+            set {
+                this["numberY"] = value;
+            }
+        }
     }
 }
